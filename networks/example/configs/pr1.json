@@ -1,0 +1,296 @@
+{
+  "name": "pr1",
+  "configurationFormat": "CISCO",
+  "vendorFamily": {
+    "huawei": null,
+    "cisco": {},
+    "juniper": null
+  },
+  "interfaces": {
+    "GigabitEthernet0": {
+      "name": "GigabitEthernet0",
+      "prefix": "10.0.1.1/31",
+      "vrf": "default",
+      "active": true,
+      "allPrefixes": [
+        "10.0.1.1/31"
+      ],
+      "ospfPassive": true,
+      "ospfInterfaceType": "BROADCAST",
+      "ospfCost": null,
+      "isis": null,
+      "incomingFilter": null,
+      "outgoingFilter": null,
+      "inboundPacketPolicy": null,
+      "outboundPacketPolicy": null,
+      "channelGroup": null,
+      "bandwidth": 1000000000000.0,
+      "ospfArea": 0,
+      "type": "PHYSICAL",
+      "ospfEnabled": true,
+      "description": "N=isp1"
+    },
+    "GigabitEthernet1": {
+      "name": "GigabitEthernet1",
+      "prefix": "10.0.2.0/31",
+      "vrf": "default",
+      "active": true,
+      "allPrefixes": [
+        "10.0.2.0/31"
+      ],
+      "ospfPassive": true,
+      "ospfInterfaceType": "BROADCAST",
+      "ospfCost": null,
+      "isis": null,
+      "incomingFilter": null,
+      "outgoingFilter": null,
+      "inboundPacketPolicy": null,
+      "outboundPacketPolicy": null,
+      "channelGroup": null,
+      "bandwidth": 1000000000000.0,
+      "ospfArea": 0,
+      "type": "PHYSICAL",
+      "ospfEnabled": true,
+      "description": "N=pr2"
+    },
+    "Loopback0": {
+      "name": "Loopback0",
+      "prefix": "1.1.1.1/32",
+      "vrf": "default",
+      "active": true,
+      "allPrefixes": [
+        "1.1.1.1/32"
+      ],
+      "ospfPassive": true,
+      "ospfInterfaceType": "BROADCAST",
+      "ospfCost": null,
+      "isis": null,
+      "incomingFilter": null,
+      "outgoingFilter": null,
+      "inboundPacketPolicy": null,
+      "outboundPacketPolicy": null,
+      "channelGroup": null,
+      "bandwidth": 1000000000000.0,
+      "ospfArea": 0,
+      "type": "LOOPBACK",
+      "ospfEnabled": true
+    },
+    "null0": {
+      "name": "null0",
+      "prefix": null,
+      "vrf": "default",
+      "active": true,
+      "allPrefixes": [],
+      "ospfPassive": false,
+      "ospfInterfaceType": "BROADCAST",
+      "ospfCost": null,
+      "isis": null,
+      "incomingFilter": null,
+      "outgoingFilter": null,
+      "inboundPacketPolicy": null,
+      "outboundPacketPolicy": null,
+      "channelGroup": null,
+      "bandwidth": 1000000000000.0,
+      "ospfArea": null,
+      "type": "NULL",
+      "ospfEnabled": false
+    }
+  },
+  "vrfs": {
+    "default": {
+      "name": "default",
+      "bgpProcess": {
+        "neighbors": {
+          "10.0.1.0": {
+            "localIp": null,
+            "localAs": "3000",
+            "remoteIp": "10.0.1.0",
+            "remoteAs": "1000",
+            "connectInterface": "GigabitEthernet0",
+            "description": null,
+            "group": null,
+            "reflectClient": false,
+            "advertiseCommunity": true,
+            "advertiseExtCommunity": false,
+            "enable": true,
+            "ignore": false,
+            "internal": true,
+            "external": false,
+            "nextHopLocal": false,
+            "labelRouteCapability": false,
+            "allowAsLoop": 0,
+            "publicAsOnly": false,
+            "defaultRouteAdvertise": false,
+            "ebgpMaxHop": 1,
+            "preferredValue": 0,
+            "importPrefixFilter": null,
+            "importCommunityFilter": null,
+            "importAsPathFilter": null,
+            "importRoutePolicy": "im1",
+            "exportPrefixFilter": null,
+            "exportCommunityFilter": null,
+            "exportAsPathFilter": null,
+            "exportRoutePolicy": "ex1"
+          },
+          "2.2.2.2": {
+            "localIp": null,
+            "localAs": "3000",
+            "remoteIp": "2.2.2.2",
+            "remoteAs": "3000",
+            "connectInterface": "Loopback0",
+            "description": null,
+            "group": null,
+            "reflectClient": false,
+            "advertiseCommunity": false,
+            "advertiseExtCommunity": false,
+            "enable": true,
+            "ignore": false,
+            "internal": true,
+            "external": false,
+            "nextHopLocal": false,
+            "labelRouteCapability": false,
+            "allowAsLoop": 0,
+            "publicAsOnly": false,
+            "defaultRouteAdvertise": false,
+            "ebgpMaxHop": 1,
+            "preferredValue": 0,
+            "importPrefixFilter": null,
+            "importCommunityFilter": null,
+            "importAsPathFilter": null,
+            "importRoutePolicy": null,
+            "exportPrefixFilter": null,
+            "exportCommunityFilter": null,
+            "exportAsPathFilter": null,
+            "exportRoutePolicy": null
+          }
+        },
+        "network": [],
+        "preference": [
+          255,
+          255,
+          255
+        ],
+        "defaultLocalPreference": 100,
+        "imports": [],
+        "aggregations": [],
+        "maxLoadBalancingIbgp": 1,
+        "maxLoadBalancingEbgp": 1
+      },
+      "ospfProcesses": {
+        "1": {
+          "areas": {
+            "0": {
+              "name": 0,
+              "injectDefaultRoute": true,
+              "interfaces": [
+                "Loopback0",
+                "GigabitEthernet0",
+                "GigabitEthernet1"
+              ],
+              "metricOfDefaultRoute": 0
+            }
+          },
+          "processId": "1",
+          "referenceBandwidth": 100000000.0,
+          "routerId": "1.1.1.1"
+        }
+      },
+      "vpntarget": {},
+      "staticRoutes": [],
+      "RD": null,
+      "interfaces": [
+        "GigabitEthernet0",
+        "GigabitEthernet1",
+        "Loopback0",
+        "null0"
+      ]
+    }
+  },
+  "routeFilterLists": {
+    "ext-prefixes": {
+      "name": "ext-prefixes",
+      "lines": [
+        {
+          "action": "PERMIT",
+          "ipWildcard": "128.0.0.0/2",
+          "lengthRange": "2-2"
+        },
+        {
+          "action": "PERMIT",
+          "ipWildcard": "192.0.0.0/2",
+          "lengthRange": "2-2"
+        }
+      ]
+    }
+  },
+  "communityLists": {
+    "isp-community": {
+      "class": "org.batfish.datamodel.CommunityList",
+      "invertMatch": false,
+      "lines": [
+        {
+          "action": "PERMIT",
+          "matchCondition": {
+            "class": "org.batfish.datamodel.routing_policy.expr.LiteralCommunityConjunction",
+            "requiredCommunities": [
+              "300:100"
+            ]
+          }
+        }
+      ],
+      "name": "isp-community"
+    }
+  },
+  "asPathAccessLists": {},
+  "ipAccessLists": {},
+  "routingPolicies": {
+    "im1": {
+      "name": "im1",
+      "nodes": [
+        {
+          "matches": [
+            {
+              "listName": "ext-prefixes",
+              "type": "prefix"
+            }
+          ],
+          "actions": [
+            {
+              "type": "local-preference",
+              "value": 200
+            },
+            {
+              "type": "community",
+              "additive": true,
+              "value": "300:100"
+            }
+          ],
+          "mode": "PERMIT",
+          "node": "100"
+        }
+      ]
+    },
+    "ex1": {
+      "name": "ex1",
+      "nodes": [
+        {
+          "matches": [
+            {
+              "type": "community",
+              "listName": "isp-community"
+            }
+          ],
+          "actions": [],
+          "mode": "DENY",
+          "node": "100"
+        },
+        {
+          "matches": [],
+          "actions": [],
+          "mode": "PERMIT",
+          "node": "200"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,188 @@
+{
+  "name": "atla-re1",
+  "communityLists" : { },
+  "communityMatchExprs": {
+    "NO-EXPORT" : {
+      "class" : "org.batfish.datamodel.routing_policy.communities.CommunityMatchAny",
+      "exprs" : [ {
+        "class" : "org.batfish.datamodel.routing_policy.communities.CommunityIs",
+        "community" : "65535:65281"
+      } ]
+    }
+  },
+  "communitySetExprs" : { },
+  "communitySetMatchExprs": {
+    "NO-EXPORT" : {
+      "class" : "org.batfish.datamodel.routing_policy.communities.CommunitySetMatchAll",
+      "exprs" : [ {
+        "class" : "org.batfish.datamodel.routing_policy.communities.HasCommunity",
+        "expr" : {
+          "class" : "org.batfish.datamodel.routing_policy.communities.CommunityIs",
+          "community" : "65535:65281"
+        }
+      } ]
+    }
+  },
+  "communitySets": {
+    "NO-EXPORT" : [ "65535:65281" ]
+  },
+  "routeFilterLists": {
+    "~AL2S-INTERNAL~ORLONGER~" : {
+      "lines" : [ {
+        "action" : "PERMIT",
+        "ipWildcard" : "64.57.30.0/25",
+        "lengthRange" : "25-32"
+      } ],
+      "name" : "~AL2S-INTERNAL~ORLONGER~"
+    },
+    "~ATLA-AL2S-RACKLAN~ORLONGER~" : {
+      "lines" : [ {
+        "action" : "PERMIT",
+        "ipWildcard" : "64.57.31.0/24",
+        "lengthRange" : "24-32"
+      }, {
+        "action" : "PERMIT",
+        "ipWildcard" : "64.57.31.0/28",
+        "lengthRange" : "28-32"
+      }, {
+        "action" : "PERMIT",
+        "ipWildcard" : "64.57.31.80/28",
+        "lengthRange" : "28-32"
+      }, {
+        "action" : "PERMIT",
+        "ipWildcard" : "64.57.31.128/28",
+        "lengthRange" : "28-32"
+      }, {
+        "action" : "PERMIT",
+        "ipWildcard" : "64.57.31.192/28",
+        "lengthRange" : "28-32"
+      }, {
+        "action" : "PERMIT",
+        "ipWildcard" : "198.71.45.64/28",
+        "lengthRange" : "28-32"
+      }, {
+        "action" : "PERMIT",
+        "ipWildcard" : "198.71.45.80/28",
+        "lengthRange" : "28-32"
+      }, {
+        "action" : "PERMIT",
+        "ipWildcard" : "198.71.45.112/28",
+        "lengthRange" : "28-32"
+      }, {
+        "action" : "PERMIT",
+        "ipWildcard" : "198.71.45.140/30",
+        "lengthRange" : "30-32"
+      }, {
+        "action" : "PERMIT",
+        "ipWildcard" : "198.71.45.184/29",
+        "lengthRange" : "29-32"
+      } ],
+      "name" : "~ATLA-AL2S-RACKLAN~ORLONGER~"
+    }
+  },
+  "routingPolicies": {
+    "AL2S-IN-INBAND-BACKUP" : {
+      "name" : "AL2S-IN-INBAND-BACKUP",
+      "statements" : [ {
+        "class" : "org.batfish.datamodel.routing_policy.statement.If",
+        "comment" : "accept",
+        "falseStatements" : [ ],
+        "guard" : {
+          "class" : "org.batfish.datamodel.routing_policy.expr.Disjunction",
+          "comment" : null,
+          "disjuncts" : [ {
+            "class" : "org.batfish.datamodel.routing_policy.expr.MatchPrefixSet",
+            "comment" : null,
+            "prefix" : {
+              "class" : "org.batfish.datamodel.routing_policy.expr.DestinationNetwork"
+            },
+            "prefixSet" : {
+              "class" : "org.batfish.datamodel.routing_policy.expr.NamedPrefixSet",
+              "name" : "~AL2S-INTERNAL~ORLONGER~"
+            }
+          }, {
+            "class" : "org.batfish.datamodel.routing_policy.expr.MatchPrefixSet",
+            "comment" : null,
+            "prefix" : {
+              "class" : "org.batfish.datamodel.routing_policy.expr.DestinationNetwork"
+            },
+            "prefixSet" : {
+              "class" : "org.batfish.datamodel.routing_policy.expr.NamedPrefixSet",
+              "name" : "~ATLA-AL2S-RACKLAN~ORLONGER~"
+            }
+          } ]
+        },
+        "trueStatements" : [ {
+          "class" : "org.batfish.datamodel.routing_policy.communities.SetCommunities",
+          "communitySetExpr" : {
+            "class" : "org.batfish.datamodel.routing_policy.communities.CommunitySetUnion",
+            "exprs" : [ {
+              "class" : "org.batfish.datamodel.routing_policy.communities.InputCommunities"
+            }, {
+              "class" : "org.batfish.datamodel.routing_policy.communities.CommunitySetReference",
+              "name" : "NO-EXPORT"
+            } ]
+          },
+          "comment" : null
+        }, {
+          "class" : "org.batfish.datamodel.routing_policy.statement.SetLocalPreference",
+          "comment" : null,
+          "localPreference" : {
+            "class" : "org.batfish.datamodel.routing_policy.expr.LiteralLong",
+            "value" : 250
+          }
+        }, {
+          "class" : "org.batfish.datamodel.routing_policy.statement.If",
+          "comment" : null,
+          "falseStatements" : [ {
+            "class" : "org.batfish.datamodel.routing_policy.statement.Statements$StaticStatement",
+            "type" : "ExitAccept",
+            "comment" : null
+          } ],
+          "guard" : {
+            "class" : "org.batfish.datamodel.routing_policy.expr.BooleanExprs$StaticBooleanExpr",
+            "type" : "CallExprContext",
+            "comment" : null
+          },
+          "trueStatements" : [ {
+            "class" : "org.batfish.datamodel.routing_policy.statement.Statements$StaticStatement",
+            "type" : "ReturnTrue",
+            "comment" : null
+          } ]
+        } ]
+      }, {
+        "class" : "org.batfish.datamodel.routing_policy.statement.If",
+        "comment" : null,
+        "falseStatements" : [ {
+          "class" : "org.batfish.datamodel.routing_policy.statement.Statements$StaticStatement",
+          "type" : "ExitReject",
+          "comment" : null
+        } ],
+        "guard" : {
+          "class" : "org.batfish.datamodel.routing_policy.expr.BooleanExprs$StaticBooleanExpr",
+          "type" : "CallExprContext",
+          "comment" : null
+        },
+        "trueStatements" : [ {
+          "class" : "org.batfish.datamodel.routing_policy.statement.Statements$StaticStatement",
+          "type" : "ReturnFalse",
+          "comment" : null
+        } ]
+      }, {
+        "class" : "org.batfish.datamodel.routing_policy.statement.If",
+        "comment" : null,
+        "falseStatements" : [ {
+          "class" : "org.batfish.datamodel.routing_policy.statement.Statements$StaticStatement",
+          "type" : "Return",
+          "comment" : null
+        } ],
+        "guard" : {
+          "class" : "org.batfish.datamodel.routing_policy.expr.BooleanExprs$StaticBooleanExpr",
+          "type" : "CallExprContext",
+          "comment" : null
+        },
+        "trueStatements" : [ ]
+      } ]
+    }
+  }
+}

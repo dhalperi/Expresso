@@ -1,0 +1,2 @@
+Vrf(pr1, default)	1.1.1.1	Vrf(pr2, default)	2.2.2.2
+Vrf(pr2, default)	2.2.2.2	Vrf(pr1, default)	1.1.1.1

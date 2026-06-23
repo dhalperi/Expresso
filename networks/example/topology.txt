@@ -1,0 +1,2 @@
+pr1	GigabitEthernet1	pr2	GigabitEthernet0
+pr2	GigabitEthernet0	pr1	GigabitEthernet1

@@ -1,0 +1,4 @@
+RouteSet{
+BgpRoute{prefixes=[128.0.0.0/2: 2~2], prefixesBdd=1067, nextHopIp=10.0.3.0, nextHopInterface=null, preference=255, admin=0, tag=NO_TAG, path=[ISP(unknown, , pr1, 1000, 10.0.1.0), Vrf(pr1, default), Vrf(pr2, default)], localPreference=100, asPath=[3000, 1000], communities=[], igpCostToNextHop=NEXT_HOP_UNREACHABLE, bgpRouteType=FROM_EBGP_NEIGHBOR}
+BgpRoute{prefixes=[192.0.0.0/2: 2~2], prefixesBdd=1095, nextHopIp=10.0.3.0, nextHopInterface=null, preference=255, admin=0, tag=NO_TAG, path=[ISP(unknown, , pr1, 1000, 10.0.1.0), Vrf(pr1, default), Vrf(pr2, default)], localPreference=100, asPath=[3000, 1000], communities=[], igpCostToNextHop=NEXT_HOP_UNREACHABLE, bgpRouteType=FROM_EBGP_NEIGHBOR}
+}

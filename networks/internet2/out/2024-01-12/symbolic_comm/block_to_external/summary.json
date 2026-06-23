@@ -1,0 +1,179 @@
+{
+  "summary": {
+    "chic-re1": {
+      "details": [
+        "ISP(unknown, Internet2 Deepfield peering ~ [NO-NOTIFY], chic-re1, 65535, 207.75.164.233)",
+        "ISP(unknown, Internet2 Deepfield test server peering ~ [NO-NOTIFY], chic-re1, 65535, 207.75.164.213)",
+        "ISP(unknown, RouteViews #1 - help@routeviews.org ~ I2-S13383, chic-re1, 6447, 128.223.51.102)",
+        "ISP(unknown, RouteViews #2 - help@routeviews.org ~ I2-S13383, chic-re1, 6447, 128.223.51.108)"
+      ],
+      "number": 4
+    }
+  },
+  "violations": {
+    "ISP(unknown, Internet2 Deepfield peering ~ [NO-NOTIFY], chic-re1, 65535, 207.75.164.233)": [
+      {
+        "admin": 170,
+        "asPath": "11537 4755",
+        "bgpRouteType": "FROM_EBGP_NEIGHBOR",
+        "communities": "[11537:888]",
+        "igpCostToNextHop": 9223372036854775807,
+        "localPreference": 100,
+        "med": 0,
+        "metric": 0,
+        "nexthopInterface": null,
+        "nexthopIp": "64.57.28.241",
+        "originType": "IGP",
+        "preference": 255,
+        "prefixRanges": [
+          "10.1.250.20/30: 30~31",
+          "10.1.250.20/30: 32~32",
+          "10.1.250.24/30: 30~31",
+          "10.1.250.24/30: 32~32",
+          "10.11.1.16/30: 30~31",
+          "10.11.1.16/30: 32~32",
+          "115.114.246.16/28: 29~29",
+          "115.114.246.16/28: 30~31",
+          "115.114.246.16/28: 32~32"
+        ],
+        "prefixes": null,
+        "prefixesBdd": 9024668,
+        "propagationPath": {
+          "hops": [
+            "ISP(unknown, tata-Telepresence peering~ I2-S13170, newy-re1, 4755, 10.11.1.17)",
+            "BTE(11537:888)",
+            "Vrf(newy-re1, default)",
+            "Vrf(chic-re1, default)"
+          ]
+        },
+        "protocol": "BGP",
+        "suppressed": false,
+        "tag": -1,
+        "weight": 0
+      }
+    ],
+    "ISP(unknown, Internet2 Deepfield test server peering ~ [NO-NOTIFY], chic-re1, 65535, 207.75.164.213)": [
+      {
+        "admin": 170,
+        "asPath": "11537 4755",
+        "bgpRouteType": "FROM_EBGP_NEIGHBOR",
+        "communities": "[11537:888]",
+        "igpCostToNextHop": 9223372036854775807,
+        "localPreference": 100,
+        "med": 0,
+        "metric": 0,
+        "nexthopInterface": null,
+        "nexthopIp": "64.57.28.241",
+        "originType": "IGP",
+        "preference": 255,
+        "prefixRanges": [
+          "10.1.250.20/30: 30~31",
+          "10.1.250.20/30: 32~32",
+          "10.1.250.24/30: 30~31",
+          "10.1.250.24/30: 32~32",
+          "10.11.1.16/30: 30~31",
+          "10.11.1.16/30: 32~32",
+          "115.114.246.16/28: 29~29",
+          "115.114.246.16/28: 30~31",
+          "115.114.246.16/28: 32~32"
+        ],
+        "prefixes": null,
+        "prefixesBdd": 9024668,
+        "propagationPath": {
+          "hops": [
+            "ISP(unknown, tata-Telepresence peering~ I2-S13170, newy-re1, 4755, 10.11.1.17)",
+            "BTE(11537:888)",
+            "Vrf(newy-re1, default)",
+            "Vrf(chic-re1, default)"
+          ]
+        },
+        "protocol": "BGP",
+        "suppressed": false,
+        "tag": -1,
+        "weight": 0
+      }
+    ],
+    "ISP(unknown, RouteViews #1 - help@routeviews.org ~ I2-S13383, chic-re1, 6447, 128.223.51.102)": [
+      {
+        "admin": 170,
+        "asPath": "11537 4755",
+        "bgpRouteType": "FROM_EBGP_NEIGHBOR",
+        "communities": "[11537:888]",
+        "igpCostToNextHop": 9223372036854775807,
+        "localPreference": 100,
+        "med": 0,
+        "metric": 0,
+        "nexthopInterface": null,
+        "nexthopIp": "64.57.28.241",
+        "originType": "IGP",
+        "preference": 255,
+        "prefixRanges": [
+          "10.1.250.20/30: 30~31",
+          "10.1.250.20/30: 32~32",
+          "10.1.250.24/30: 30~31",
+          "10.1.250.24/30: 32~32",
+          "10.11.1.16/30: 30~31",
+          "10.11.1.16/30: 32~32",
+          "115.114.246.16/28: 29~29",
+          "115.114.246.16/28: 30~31",
+          "115.114.246.16/28: 32~32"
+        ],
+        "prefixes": null,
+        "prefixesBdd": 9024668,
+        "propagationPath": {
+          "hops": [
+            "ISP(unknown, tata-Telepresence peering~ I2-S13170, newy-re1, 4755, 10.11.1.17)",
+            "BTE(11537:888)",
+            "Vrf(newy-re1, default)",
+            "Vrf(chic-re1, default)"
+          ]
+        },
+        "protocol": "BGP",
+        "suppressed": false,
+        "tag": -1,
+        "weight": 0
+      }
+    ],
+    "ISP(unknown, RouteViews #2 - help@routeviews.org ~ I2-S13383, chic-re1, 6447, 128.223.51.108)": [
+      {
+        "admin": 170,
+        "asPath": "11537 4755",
+        "bgpRouteType": "FROM_EBGP_NEIGHBOR",
+        "communities": "[11537:888]",
+        "igpCostToNextHop": 9223372036854775807,
+        "localPreference": 100,
+        "med": 0,
+        "metric": 0,
+        "nexthopInterface": null,
+        "nexthopIp": "64.57.28.241",
+        "originType": "IGP",
+        "preference": 255,
+        "prefixRanges": [
+          "10.1.250.20/30: 30~31",
+          "10.1.250.20/30: 32~32",
+          "10.1.250.24/30: 30~31",
+          "10.1.250.24/30: 32~32",
+          "10.11.1.16/30: 30~31",
+          "10.11.1.16/30: 32~32",
+          "115.114.246.16/28: 29~29",
+          "115.114.246.16/28: 30~31",
+          "115.114.246.16/28: 32~32"
+        ],
+        "prefixes": null,
+        "prefixesBdd": 9024668,
+        "propagationPath": {
+          "hops": [
+            "ISP(unknown, tata-Telepresence peering~ I2-S13170, newy-re1, 4755, 10.11.1.17)",
+            "BTE(11537:888)",
+            "Vrf(newy-re1, default)",
+            "Vrf(chic-re1, default)"
+          ]
+        },
+        "protocol": "BGP",
+        "suppressed": false,
+        "tag": -1,
+        "weight": 0
+      }
+    ]
+  }
+}

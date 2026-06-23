@@ -1,0 +1,2802 @@
+{
+  "edges" : [ {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.10",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.10",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.20",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.20",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.30",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.30",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.10",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.10",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.20",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.20",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.30",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.30",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.10",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.10",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.20",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.20",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.30",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.30",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.105",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/2/0.105",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.117",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.117",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.118",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.118",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.207",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/2/0.207",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.305",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/2/0.305",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.317",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.317",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.318",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.318",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.104",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.104",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.108",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.108",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.205",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.205",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.215",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.215",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.304",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.304",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.308",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.308",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/0.2701",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/3/3.2701",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/0.2702",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ge-1/2/3.2702",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/0.2707",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ge-1/2/3.2707",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/0.2709",
+      "node" : "atla-re1"
+    },
+    "node2" : {
+      "interface" : "ge-1/2/3.2709",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.10",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.10",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.20",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.20",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.30",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.30",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae7.10",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.10",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae7.20",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.20",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae7.30",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.30",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.10",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.10",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.20",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.20",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.30",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.30",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.107",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.107",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.108",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.108",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.116",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.116",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.206",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.206",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.215",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.215",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.307",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.307",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.308",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.308",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.316",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.316",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.106",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.106",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.115",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.115",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.208",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.208",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.306",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.306",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.315",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.315",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/0.2711",
+      "node" : "chic-re1"
+    },
+    "node2" : {
+      "interface" : "xe-0/2/1.2711",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.10",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ae7.10",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.20",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ae7.20",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.30",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ae7.30",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.10",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.10",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.20",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.20",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.30",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.30",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.10",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.10",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.20",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.20",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.30",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.30",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.107",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.107",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.117",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.117",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.206",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.206",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.307",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.307",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.317",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.317",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.102",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.102",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.103",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-3/0/0.103",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.203",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.203",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.204",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-3/0/0.204",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.302",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.302",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.303",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "et-3/0/0.303",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "xe-0/2/1.2706",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/3/3.2706",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "xe-0/2/1.2708",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/0.2708",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "xe-0/2/1.2711",
+      "node" : "clev-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/0.2711",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.10",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.10",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.20",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.20",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.30",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.30",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.10",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.10",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.20",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.20",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.30",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.30",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.10",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ae3.10",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.20",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ae3.20",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.30",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ae3.30",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-1/0/0.109",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.109",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-1/0/0.111",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.111",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-1/0/0.209",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.209",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-1/0/0.211",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.211",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-1/0/0.309",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.309",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-1/0/0.311",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.311",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/2/0.105",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.105",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/2/0.207",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.207",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/2/0.305",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.305",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-1/2/3.2702",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/0.2702",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-1/2/3.2705",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/3/2.2705",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-1/2/3.2706",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/5.2706",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-1/2/3.2707",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/0.2707",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-1/2/3.2709",
+      "node" : "hous-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/0.2709",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.10",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.10",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.20",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.20",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.30",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.30",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.10",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.10",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.20",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.20",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.30",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.30",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.10",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.10",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.20",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.20",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.30",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.30",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.106",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.106",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.208",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.208",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.306",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.306",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.109",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "et-1/0/0.109",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.110",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "et-4/0/0.110",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.209",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "et-1/0/0.209",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.210",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "et-4/0/0.210",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.309",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "et-1/0/0.309",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.310",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "et-4/0/0.310",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/5.2703",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/0.2703",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/5.2706",
+      "node" : "kans-re1"
+    },
+    "node2" : {
+      "interface" : "ge-1/2/3.2706",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.10",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.10",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.20",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.20",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.30",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.30",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.10",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.10",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.20",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.20",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.30",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.30",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae3.10",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.10",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae3.20",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.20",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae3.30",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.30",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.114",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.114",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.201",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.201",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.214",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.214",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.314",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.314",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.111",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "et-1/0/0.111",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.112",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.112",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.211",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "et-1/0/0.211",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.212",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.212",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.311",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "et-1/0/0.311",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.312",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.312",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/3/2.2704",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/0.2704",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/3/2.2705",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "ge-1/2/3.2705",
+      "node" : "hous-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "xe-8/0/3.776",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "xe-0/1/1.776",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "xe-8/0/3.777",
+      "node" : "losa-re1"
+    },
+    "node2" : {
+      "interface" : "xe-0/1/1.777",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.10",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.10",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.20",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.20",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.30",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.30",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae3.10",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "ae3.10",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae3.20",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "ae3.20",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae3.30",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "ae3.30",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.102",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.102",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.118",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.118",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.203",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.203",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.302",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.302",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.318",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.318",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.101",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "et-3/0/0.101",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.116",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.116",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.202",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "et-3/0/0.202",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.301",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "et-3/0/0.301",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.316",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.316",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/0.2708",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "xe-0/2/1.2708",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/0.2710",
+      "node" : "newy-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/3/3.2710",
+      "node" : "wash-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.10",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.10",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.20",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.20",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.30",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.30",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.10",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.10",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.20",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.20",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae1.30",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.30",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.10",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.10",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.20",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.20",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae2.30",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.30",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.112",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.112",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.212",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.212",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.312",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.312",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-4/0/0.110",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.110",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-4/0/0.113",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.113",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-4/0/0.210",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.210",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-4/0/0.213",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.213",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-4/0/0.310",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.310",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-4/0/0.313",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.313",
+      "node" : "seat-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/0.2703",
+      "node" : "salt-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/5.2703",
+      "node" : "kans-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.10",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.10",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.20",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.20",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.30",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "ae1.30",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.10",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.10",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.20",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.20",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.30",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "ae0.30",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.114",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.114",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.214",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.214",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-10/0/0.314",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.314",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.113",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "et-4/0/0.113",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.213",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "et-4/0/0.213",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-5/0/0.313",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "et-4/0/0.313",
+      "node" : "salt-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/0.2704",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/3/2.2704",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "xe-0/1/1.776",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "xe-8/0/3.776",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "xe-0/1/1.777",
+      "node" : "seat-re1"
+    },
+    "node2" : {
+      "interface" : "xe-8/0/3.777",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.10",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.10",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.20",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.20",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae0.30",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ae2.30",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae3.10",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ae3.10",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae3.20",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ae3.20",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae3.30",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ae3.30",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.10",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.10",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.20",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.20",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ae8.30",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ae8.30",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-3/0/0.101",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.101",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-3/0/0.103",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.103",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-3/0/0.202",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.202",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-3/0/0.204",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.204",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-3/0/0.301",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.301",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-3/0/0.303",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.303",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.104",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.104",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.115",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.115",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.201",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-10/0/0.201",
+      "node" : "losa-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.205",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.205",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.304",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-5/0/0.304",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "et-9/0/0.315",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "et-9/0/0.315",
+      "node" : "chic-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/2/0.10",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/0.10",
+      "node" : "newy-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/3/3.2701",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/0.2701",
+      "node" : "atla-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/3/3.2706",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "xe-0/2/1.2706",
+      "node" : "clev-re1"
+    }
+  }, {
+    "circuitType" : "LEVEL_2",
+    "node1" : {
+      "interface" : "ge-10/3/3.2710",
+      "node" : "wash-re1"
+    },
+    "node2" : {
+      "interface" : "ge-10/2/0.2710",
+      "node" : "newy-re1"
+    }
+  } ],
+  "nodes" : [ {
+    "interface" : "ae0.10",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ae8.10",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "ae0.20",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ae8.20",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "ae0.30",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ae8.30",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "ae1.10",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ae1.10",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ae1.20",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ae1.20",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ae1.30",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ae1.30",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ae8.10",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ae8.10",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ae8.20",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ae8.20",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ae8.30",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ae8.30",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-10/0/0.105",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-10/2/0.105",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "et-10/0/0.117",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-10/0/0.117",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-10/0/0.118",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-10/0/0.118",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "et-10/0/0.207",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-10/2/0.207",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "et-10/0/0.305",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-10/2/0.305",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "et-10/0/0.317",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-10/0/0.317",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-10/0/0.318",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-10/0/0.318",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "et-5/0/0.104",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-9/0/0.104",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-5/0/0.108",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-10/0/0.108",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-5/0/0.205",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-9/0/0.205",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-5/0/0.215",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-10/0/0.215",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-5/0/0.304",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-9/0/0.304",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-5/0/0.308",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "et-10/0/0.308",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "ge-10/2/0.2701",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ge-10/3/3.2701",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ge-10/2/0.2702",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ge-1/2/3.2702",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ge-10/2/0.2707",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ge-1/2/3.2707",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ge-10/2/0.2709",
+    "node" : "atla-re1"
+  }, {
+    "interface" : "ge-1/2/3.2709",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ae0.10",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "ae0.10",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ae0.20",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "ae0.20",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ae0.30",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "ae0.30",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ae7.10",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "ae0.10",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ae7.20",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "ae0.20",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ae7.30",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "ae0.30",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-10/0/0.107",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-10/0/0.107",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-10/0/0.116",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-5/0/0.116",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "et-10/0/0.206",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-10/0/0.206",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-10/0/0.307",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-10/0/0.307",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-10/0/0.316",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-5/0/0.316",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "et-9/0/0.106",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-10/0/0.106",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "et-9/0/0.115",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-9/0/0.115",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-9/0/0.208",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-10/0/0.208",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "et-9/0/0.306",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-10/0/0.306",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "et-9/0/0.315",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "et-9/0/0.315",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ge-10/2/0.2711",
+    "node" : "chic-re1"
+  }, {
+    "interface" : "xe-0/2/1.2711",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ae1.10",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ae2.10",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "ae1.20",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ae2.20",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "ae1.30",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ae2.30",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "ae2.10",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ae0.10",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ae2.20",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ae0.20",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ae2.30",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ae0.30",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-5/0/0.102",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-10/0/0.102",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "et-5/0/0.103",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-3/0/0.103",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-5/0/0.203",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-10/0/0.203",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "et-5/0/0.204",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-3/0/0.204",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-5/0/0.302",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-10/0/0.302",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "et-5/0/0.303",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "et-3/0/0.303",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "xe-0/2/1.2706",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ge-10/3/3.2706",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "xe-0/2/1.2708",
+    "node" : "clev-re1"
+  }, {
+    "interface" : "ge-10/2/0.2708",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "ae0.10",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ae1.10",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ae0.20",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ae1.20",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ae0.30",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ae1.30",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ae2.10",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ae3.10",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ae2.20",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ae3.20",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ae2.30",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ae3.30",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "et-1/0/0.109",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "et-5/0/0.109",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "et-1/0/0.111",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "et-5/0/0.111",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "et-1/0/0.209",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "et-5/0/0.209",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "et-1/0/0.211",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "et-5/0/0.211",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "et-1/0/0.309",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "et-5/0/0.309",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "et-1/0/0.311",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "et-5/0/0.311",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ge-1/2/3.2705",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ge-10/3/2.2705",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ge-1/2/3.2706",
+    "node" : "hous-re1"
+  }, {
+    "interface" : "ge-10/2/5.2706",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ae2.10",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ae0.10",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "ae2.20",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ae0.20",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "ae2.30",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ae0.30",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "et-5/0/0.110",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "et-4/0/0.110",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "et-5/0/0.210",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "et-4/0/0.210",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "et-5/0/0.310",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "et-4/0/0.310",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "ge-10/2/5.2703",
+    "node" : "kans-re1"
+  }, {
+    "interface" : "ge-10/2/0.2703",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "ae0.10",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ae8.10",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "ae0.20",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ae8.20",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "ae0.30",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ae8.30",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "ae2.10",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ae2.10",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "ae2.20",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ae2.20",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "ae2.30",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ae2.30",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "et-10/0/0.114",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "et-10/0/0.114",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "et-10/0/0.201",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "et-9/0/0.201",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-10/0/0.214",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "et-10/0/0.214",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "et-10/0/0.314",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "et-10/0/0.314",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "et-5/0/0.112",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "et-10/0/0.112",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "et-5/0/0.212",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "et-10/0/0.212",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "et-5/0/0.312",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "et-10/0/0.312",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "ge-10/3/2.2704",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "ge-10/2/0.2704",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "xe-8/0/3.776",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "xe-0/1/1.776",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "xe-8/0/3.777",
+    "node" : "losa-re1"
+  }, {
+    "interface" : "xe-0/1/1.777",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "ae3.10",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "ae3.10",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ae3.20",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "ae3.20",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ae3.30",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "ae3.30",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-5/0/0.101",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "et-3/0/0.101",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-5/0/0.202",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "et-3/0/0.202",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "et-5/0/0.301",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "et-3/0/0.301",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ge-10/2/0.2710",
+    "node" : "newy-re1"
+  }, {
+    "interface" : "ge-10/3/3.2710",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ae1.10",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "ae0.10",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "ae1.20",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "ae0.20",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "ae1.30",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "ae0.30",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "et-4/0/0.113",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "et-5/0/0.113",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "et-4/0/0.213",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "et-5/0/0.213",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "et-4/0/0.313",
+    "node" : "salt-re1"
+  }, {
+    "interface" : "et-5/0/0.313",
+    "node" : "seat-re1"
+  }, {
+    "interface" : "ge-10/2/0.10",
+    "node" : "wash-re1"
+  }, {
+    "interface" : "ge-10/2/0.10",
+    "node" : "newy-re1"
+  } ]
+}

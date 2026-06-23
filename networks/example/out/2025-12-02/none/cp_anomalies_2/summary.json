@@ -1,0 +1,23 @@
+{
+  "hijackedPrefixes" : { },
+  "leakedPrefixes" : {
+    "128.0.0.0/2" : {
+      "128.0.0.0/2" : {
+        "prefixRange" : [ "pr1: ext-prefixes", "pr2: ext-prefixes" ]
+      }
+    },
+    "192.0.0.0/2" : {
+      "192.0.0.0/2" : {
+        "prefixRange" : [ "pr1: ext-prefixes", "pr2: ext-prefixes" ]
+      }
+    }
+  },
+  "numHijackedPrefixes" : 0,
+  "numLeakedPrefixes" : 2,
+  "routeHijacks" : { },
+  "routeLeaks" : {
+    "128.0.0.0/1: 2~2" : [ {
+      "hops" : [ "ISP(unknown, , pr1, 1000, 10.0.1.0)", "Vrf(pr1, default)", "Vrf(pr2, default)", "ISP(unknown, , pr2, 2000, 10.0.3.1)" ]
+    } ]
+  }
+}

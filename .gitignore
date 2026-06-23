@@ -1,0 +1,6 @@
+# IntelliJ project files that should not be shared
+.*iml
+.idea
+
+# Maven files
+target
