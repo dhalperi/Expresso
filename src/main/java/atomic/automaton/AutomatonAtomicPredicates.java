@@ -9,7 +9,6 @@ import datamodel.community.CommunityRegex;
 import dk.brics.automaton.Automaton;
 import main.ExpressoLogger;
 import org.apache.commons.lang3.ObjectUtils;
-import org.batfish.common.BatfishException;
 import util.TimeUtil;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -104,8 +103,16 @@ public class AutomatonAtomicPredicates<T extends AutomatonRepresented>
 //      System.out.print(msg);
 
       if (auto.isEmpty()) {
-        // empty automaton; give up
-        throw new BatfishException("Empty automaton");
+        // An empty automaton matches nothing, so it cannot carve out any atomic predicate; skip
+        // it. This happens for regexes that cannot match a well-formed value of this type -- e.g.
+        // a community "members 65000:672277L:36867" in some internet2 configs, which is not a
+        // standard NUM:NUM community, so intersecting with the community FSM yields the empty
+        // language.
+        ExpressoLogger.log(
+            ExpressoLogger.LEVEL.WARN,
+            "Skipping regex with empty automaton (matches nothing): "
+                + autoToOrigin.get(auto).iterator().next());
+        continue;
       }
       Collection<T> autoOrigins = autoToOrigin.get(auto);
 

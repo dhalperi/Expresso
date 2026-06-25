@@ -19,7 +19,8 @@
         <maven-compiler-plugin.version>3.6.1</maven-compiler-plugin.version>
 
         <!-- The versions of Java libraries used. Please keep alphabetical. -->
-        <jackson.version>2.14.2</jackson.version>
+        <!-- Keep aligned with Batfish's MODULE.bazel pins. -->
+        <jackson.version>2.20.1</jackson.version>
         <autoservice.version>1.0-rc6</autoservice.version>
     </properties>
 
@@ -135,25 +136,68 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M1</version>
+                <version>3.2.5</version>
                 <configuration>
-                    <skipTests>true</skipTests>
+                    <!--
+                        Run each test class in a fresh JVM. Expresso keeps global mutable
+                        state in singletons (main.Controller, the JDD BDD factory), so
+                        reusing a forked JVM across classes leaks state and causes
+                        spurious cross-class failures.
+                    -->
+                    <reuseForks>false</reuseForks>
+                    <forkCount>1</forkCount>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
+    <dependencyManagement>
+        <dependencies>
+            <!--
+                Import the Jackson BOM so all jackson artifacts resolve to the exact
+                versions Batfish publishes (e.g. jackson-annotations is 2.20,
+                jackson-core/databind are 2.20.1). Keeping these aligned avoids
+                deserialization incompatibilities against the VI model.
+            -->
+            <dependency>
+                <groupId>com.fasterxml.jackson</groupId>
+                <artifactId>jackson-bom</artifactId>
+                <version>${jackson.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>31.1-jre</version>
+            <version>33.5.0-jre</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>2.8.9</version>
+            <version>2.14.0</version>
+        </dependency>
+
+        <!--
+            javax.annotation.{Nullable,Nonnull,...}. Previously pulled in transitively
+            by guava (<= 31), but guava 33 dropped the jsr305 dependency, so declare it
+            explicitly. Version matches Batfish's pin.
+        -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+
+        <!-- High-performance primitive collections used by Batfish's data plane. -->
+        <dependency>
+            <groupId>com.carrotsearch</groupId>
+            <artifactId>hppc</artifactId>
+            <version>0.10.0</version>
         </dependency>
 
         <dependency>
@@ -204,49 +248,43 @@
         <dependency>
             <groupId>org.jgrapht</groupId>
             <artifactId>jgrapht-core</artifactId>
-            <version>1.3.1</version>
+            <version>1.5.3</version>
         </dependency>
 
         <dependency>
             <groupId>commons-cli</groupId>
             <artifactId>commons-cli</artifactId>
-            <version>1.4</version>
+            <version>1.11.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-guava</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jdk8</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
 
         <dependency>
@@ -264,13 +302,13 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
-            <version>3.18.0</version>
+            <version>3.20.0</version>
         </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
-            <version>2.14.0</version>
+            <version>2.22.0</version>
         </dependency>
 
         <dependency>
@@ -282,7 +320,7 @@
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-configuration2</artifactId>
-            <version>2.12.0</version>
+            <version>2.15.1</version>
         </dependency>
 
         <dependency>
@@ -294,7 +332,7 @@
         <dependency>
             <groupId>org.codehaus.jettison</groupId>
             <artifactId>jettison</artifactId>
-            <version>1.5.4</version>
+            <version>1.5.6</version>
         </dependency>
 
         <dependency>
@@ -309,50 +347,27 @@
             <version>2.1.3</version>
         </dependency>
 
+        <!--
+            Single "thin" library jar built from open-source Batfish
+            (//projects/allinone:batfish_thin.jar). It bundles Batfish's own
+            modules (batfish, batfish-common-protocol, bdd, question, symbolic,
+            minesweeper) plus the automaton and parboiled libraries, but no
+            other third-party dependencies (those come from Maven below). Build
+            it with `bazel build //projects/allinone:batfish_thin.jar` in the
+            Batfish workspace and copy bazel-bin/projects/allinone/batfish_thin.jar.
+        -->
         <dependency>
             <groupId>org.batfish</groupId>
-            <artifactId>batfish</artifactId>
+            <artifactId>batfish-thin</artifactId>
             <version>${batfish.version}</version>
             <scope>system</scope>
-            <systemPath>${project.basedir}/lib/batfish/batfish-${batfish.version}.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>org.batfish</groupId>
-            <artifactId>batfish-common-protocol</artifactId>
-            <version>${batfish.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/batfish/batfish-common-protocol-${batfish.version}.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>org.batfish</groupId>
-            <artifactId>bdd</artifactId>
-            <version>${batfish.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/batfish/bdd-${batfish.version}.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>org.batfish</groupId>
-            <artifactId>question</artifactId>
-            <version>${batfish.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/batfish/question-${batfish.version}.jar</systemPath>
-        </dependency>
-
-        <dependency>
-            <groupId>org.batfish</groupId>
-            <artifactId>symbolic</artifactId>
-            <version>${batfish.version}</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/batfish/symbolic-${batfish.version}.jar</systemPath>
+            <systemPath>${project.basedir}/lib/batfish/batfish-thin.jar</systemPath>
         </dependency>
 
         <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>
             <artifactId>caffeine</artifactId>
-            <version>2.9.3</version>
+            <version>3.2.4</version>
         </dependency>
 
         <dependency>
@@ -364,7 +379,7 @@
         <dependency>
             <groupId>org.antlr</groupId>
             <artifactId>antlr4-runtime</artifactId>
-            <version>4.7.1</version>
+            <version>4.13.2</version>
         </dependency>
 
         <dependency>
@@ -388,7 +403,7 @@
         <dependency>
             <groupId>com.ibm.icu</groupId>
             <artifactId>icu4j</artifactId>
-            <version>75.1</version>
+            <version>76.1</version>
         </dependency>
 
         <dependency>

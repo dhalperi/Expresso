@@ -4,3 +4,18 @@
 
 # Maven files
 target
+
+# Batfish parser scratch
+networks/.temp
+
+# Per-run analysis output (the checkers write here)
+networks/*/out
+
+# Debug images written by some tests (e.g. BDD/TC visualizations)
+*.png
+
+# example-live ships only raw-configs; the VI model and inferred topology are
+# generated on demand by the batfish parser (java util.BatfishUtil example-live).
+networks/example-live/configs
+networks/example-live/topology.txt
+

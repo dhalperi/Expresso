@@ -2,8 +2,8 @@ package util;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.google.common.cache.Cache;
-import com.google.common.cache.CacheBuilder;
+import com.github.benmanes.caffeine.cache.Cache;
+import com.github.benmanes.caffeine.cache.Caffeine;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -205,11 +205,15 @@ public class BatfishUtil {
     Settings settings = new Settings(new String[] {});
 
     settings.setLogger(new BatfishLogger("debug", false));
-    settings.setDisableUnrecognized(true);
-    settings.setHaltOnConvertError(true);
-    settings.setHaltOnParseError(true);
-    settings.setThrowOnLexerError(true);
-    settings.setThrowOnParserError(true);
+    // Be lenient about constructs this Batfish version cannot parse/convert: skip the offending
+    // lines and emit a best-effort VI rather than aborting the whole snapshot. Real vendor configs
+    // routinely contain stanzas (e.g. some Juniper interface VLAN settings) that are irrelevant to
+    // Expresso's routing analysis but that a strict parse would reject.
+    settings.setDisableUnrecognized(false);
+    settings.setHaltOnConvertError(false);
+    settings.setHaltOnParseError(false);
+    settings.setThrowOnLexerError(false);
+    settings.setThrowOnParserError(false);
     settings.setVerboseParse(true);
 
     settings.setStorageBase(TEMP_DIR);
@@ -265,12 +269,12 @@ public class BatfishUtil {
 
   /** Helper function: initialize a cache for parsed VIs. */
   private static Cache<NetworkSnapshot, SortedMap<String, Configuration>> makeTestrigCache() {
-    return CacheBuilder.newBuilder().softValues().maximumSize(5).build();
+    return Caffeine.newBuilder().softValues().maximumSize(5).build();
   }
 
   /** Helper function: initialize a cache for generated data planes. */
   private static Cache<NetworkSnapshot, DataPlane> makeDataPlaneCache() {
-    return CacheBuilder.newBuilder().softValues().maximumSize(2).build();
+    return Caffeine.newBuilder().softValues().maximumSize(2).build();
   }
 
   /** Helper function: initialize a cache for external BGP advertisements. */
@@ -284,7 +288,7 @@ public class BatfishUtil {
    */
   private static Cache<NetworkSnapshot, Map<String, VendorConfiguration>>
       makeVendorConfigurationCache() {
-    return CacheBuilder.newBuilder().softValues().maximumSize(2).build();
+    return Caffeine.newBuilder().softValues().maximumSize(2).build();
   }
 
   public static void main(String[] args) {
