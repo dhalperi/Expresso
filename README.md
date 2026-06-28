@@ -44,17 +44,40 @@ But we highly recommend you to provide `configs` + `topology.txt`, see [input pa
 ### Run Expresso
 
 ```bash
-# if you are providing raw vendor-specific configurations, 
+# if you are providing raw vendor-specific configurations,
 # call the batfish parser to convert them into vendor-independent configurations
-java -jar target/batfish-parser.jar <name>
+java -cp "target/batfish-parser.jar:lib/batfish/batfish-thin.jar" \
+  util.BatfishUtil <name>
 
 # appoint "comm" if to consider symbolic communities
 # appoint "asp" if to consider symbolic as paths
 # appoint "tp" if to consider traffic policies
-java -jar target/expresso.jar comm asp tp <name>
+java -Xmx32g \
+  -cp "target/expresso.jar:lib/batfish/batfish-thin.jar:lib/jdd-111.jar" \
+  application.experiments.ExpressoRunner comm asp tp <name>
 ```
 
 Note that when running Expresso, we highly recommend you to permit a high memory usage for JVM by appointing -Xmx.
+
+### Batfish jar
+
+Expresso depends on Batfish for two things: parsing raw vendor configs into the
+vendor-independent (VI) model, and the VI data model classes themselves. The Batfish jar
+lives at `lib/batfish/batfish-thin.jar`. It is a "thin" library jar built from open-source
+[Batfish](https://github.com/batfish/batfish): it bundles only Batfish's own classes
+(`org/batfish`, plus the vendored `net/sf/javabdd`) and no third-party dependencies. Those
+resolve from Maven; see `pom.xml`, whose versions are kept aligned with Batfish's
+`MODULE.bazel` pins. To refresh it against a newer Batfish:
+
+```bash
+# in the Batfish workspace
+bazel build //projects/allinone:batfish_thin.jar
+cp bazel-bin/projects/allinone/batfish_thin.jar <expresso>/lib/batfish/batfish-thin.jar
+```
+
+The `batfish_thin.jar` target is produced by the `thin_jar` rule in
+`skylark/thin_jar.bzl`. VI JSON produced by an older Batfish may not deserialize against a
+newer one; regenerate it from raw configs with the parser above.
 
 ## Project Structure
 

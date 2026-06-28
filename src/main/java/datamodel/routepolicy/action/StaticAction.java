@@ -11,9 +11,12 @@ public enum StaticAction implements Action {
   ReturnTrue,
   ReturnFalse,
   Return,
+  ReturnLocalDefaultAction,
   FallThrough,
   SetDefaultActionAccept,
-  SetDefaultActionReject;
+  SetDefaultActionReject,
+  SetLocalDefaultActionAccept,
+  SetLocalDefaultActionReject;
 
   @Override
   public <R extends Route> void act(R route, RouteFilterEnvironment<R> environment) {
@@ -58,6 +61,20 @@ public enum StaticAction implements Action {
               .values()
               .forEach(rs -> rs.add(route));
         return;
+      case ReturnLocalDefaultAction:
+        // Return with the current local default action as the boolean value (Cisco route-map
+        // fall-off). Mirrors Batfish Statements#ReturnLocalDefaultAction.
+        if (environment.getResult() != null)
+          environment
+              .getResult()
+              .getResults(
+                  Result.builder()
+                      .setReturn(true)
+                      .setBooleanValue(environment.isLocalDefaultAction())
+                      .build())
+              .values()
+              .forEach(rs -> rs.add(route));
+        return;
       case FallThrough:
         if (environment.getResult() != null)
           environment
@@ -71,6 +88,12 @@ public enum StaticAction implements Action {
         break;
       case SetDefaultActionReject:
         environment.setDefaultAction(false);
+        break;
+      case SetLocalDefaultActionAccept:
+        environment.setLocalDefaultAction(true);
+        break;
+      case SetLocalDefaultActionReject:
+        environment.setLocalDefaultAction(false);
         break;
     }
     if (environment.getResult() != null)

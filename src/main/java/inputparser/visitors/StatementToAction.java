@@ -11,7 +11,9 @@ import datamodel.routepolicy.action.StaticAction;
 import inputparser.bfvi.RoutePolicyParserHelper;
 import javafx.util.Pair;
 import org.batfish.datamodel.routing_policy.communities.SetCommunities;
+import org.batfish.datamodel.routing_policy.expr.AdministrativeCostExpr;
 import org.batfish.datamodel.routing_policy.expr.BgpPeerAddressNextHop;
+import org.batfish.datamodel.routing_policy.expr.LiteralAdministrativeCost;
 import org.batfish.datamodel.routing_policy.expr.DiscardNextHop;
 import org.batfish.datamodel.routing_policy.expr.IpNextHop;
 import org.batfish.datamodel.routing_policy.expr.LiteralOrigin;
@@ -33,16 +35,6 @@ public class StatementToAction implements StatementVisitor<Action, Router> {
   CommunitySetToAction communitySetToAction = new CommunitySetToAction();
 
   @Override
-  public Action visitAddCommunity(AddCommunity addCommunity, Router router) {
-    return addCommunity.getExpr().accept(new ExprCommunitySetToAction(router));
-  }
-
-  @Override
-  public Action visitBufferedStatement(BufferedStatement bufferedStatement, Router router) {
-    throw new UnsupportedOperationException();
-  }
-
-  @Override
   public Action visitCallStatement(CallStatement callStatement, Router router) {
     throw new UnsupportedOperationException();
   }
@@ -53,7 +45,7 @@ public class StatementToAction implements StatementVisitor<Action, Router> {
   }
 
   @Override
-  public Action visitDeleteCommunity(DeleteCommunity deleteCommunity, Router router) {
+  public Action visitExcludeAsPath(ExcludeAsPath excludeAsPath, Router router) {
     throw new UnsupportedOperationException();
   }
 
@@ -69,32 +61,36 @@ public class StatementToAction implements StatementVisitor<Action, Router> {
   }
 
   @Override
-  public Action visitOverwriteAsPath(OverwriteAsPath overwriteAsPath, Router router) {
-    List<Long> asns = getAsPath(overwriteAsPath.getExpr());
-    return SetAsPath.overwrite(asns);
-  }
-
-  @Override
   public Action visitPrependAsPath(PrependAsPath prependAsPath, Router router) {
     List<Long> asns = getAsPath(prependAsPath.getExpr());
     return SetAsPath.additive(asns);
   }
 
   @Override
+  public Action visitReplaceAsesInAsSequence(ReplaceAsesInAsSequence replaceAsesInAsSequence) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Action visitRemoveTunnelEncapsulationAttribute(
+      RemoveTunnelEncapsulationAttribute removeTunnelEncapsulationAttribute, Router router) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
   public Action visitSetAdministrativeCost(
       SetAdministrativeCost setAdministrativeCost, Router router) {
-    int admin = setAdministrativeCost.getAdmin().accept(intVisitor, router);
-    return new SetPreference(admin);
+    AdministrativeCostExpr adminExpr = setAdministrativeCost.getAdmin();
+    if (adminExpr instanceof LiteralAdministrativeCost) {
+      return new SetPreference((int) ((LiteralAdministrativeCost) adminExpr).getValue());
+    }
+    // Increment/decrement administrative-cost exprs are not modeled.
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Action visitSetCommunities(SetCommunities setCommunities, Router router) {
     return setCommunities.getCommunitySetExpr().accept(communitySetToAction, router);
-  }
-
-  @Override
-  public Action visitSetCommunity(SetCommunity setCommunity, Router router) {
-    return setCommunity.getExpr().accept(new ExprCommunitySetToAction(router));
   }
 
   @Override
@@ -109,13 +105,13 @@ public class StatementToAction implements StatementVisitor<Action, Router> {
 
   @Override
   public Action visitSetIsisLevel(SetIsisLevel setIsisLevel, Router router) {
-    // todo
+    // No-op: IS-IS metric/level attributes are not relevant to Expresso's BGP analysis.
     return null;
   }
 
   @Override
   public Action visitSetIsisMetricType(SetIsisMetricType setIsisMetricType, Router router) {
-    // todo
+    // No-op: IS-IS metric type is not relevant to Expresso's BGP analysis.
     return null;
   }
 
@@ -180,7 +176,8 @@ public class StatementToAction implements StatementVisitor<Action, Router> {
 
   @Override
   public Action visitSetOspfMetricType(SetOspfMetricType setOspfMetricType, Router router) {
-    throw new UnsupportedOperationException();
+    // No-op: OSPF metric type is not relevant to Expresso's BGP analysis.
+    return null;
   }
 
   @Override
@@ -190,14 +187,46 @@ public class StatementToAction implements StatementVisitor<Action, Router> {
   }
 
   @Override
-  public Action visitSetVarMetricType(SetVarMetricType setVarMetricType, Router router) {
+  public Action visitSetDefaultTag(SetDefaultTag setDefaultTag, Router router) {
     throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Action visitSetOriginatorIp(SetOriginatorIp setOriginatorIp, Router router) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Action visitSetTunnelEncapsulationAttribute(
+      SetTunnelEncapsulationAttribute setTunnelEncapsulationAttribute, Router router) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Action visitSetVarMetricType(SetVarMetricType setVarMetricType, Router router) {
+    // No-op: metric type is not relevant to Expresso's BGP analysis.
+    return null;
   }
 
   @Override
   public Action visitSetWeight(SetWeight setWeight, Router router) {
     int w = setWeight.getWeight().accept(intVisitor, router);
     return new datamodel.routepolicy.action.SetWeight(w);
+  }
+
+  /**
+   * A {@link TraceableStatement} wraps inner statements with tracing metadata only. In the
+   * action-conversion context (a single statement is expected to map to a single {@link Action}),
+   * we recurse only when it wraps exactly one inner statement; otherwise it is ambiguous.
+   */
+  @Override
+  public Action visitTraceableStatement(TraceableStatement traceableStatement, Router router) {
+    List<org.batfish.datamodel.routing_policy.statement.Statement> inner =
+        traceableStatement.getInnerStatements();
+    if (inner.size() == 1) {
+      return inner.get(0).accept(this, router);
+    }
+    throw new UnsupportedOperationException();
   }
 
   @Override
@@ -213,8 +242,18 @@ public class StatementToAction implements StatementVisitor<Action, Router> {
         return StaticAction.ReturnFalse;
       case Return:
         return StaticAction.Return;
+      case ReturnLocalDefaultAction:
+        return StaticAction.ReturnLocalDefaultAction;
       case FallThrough:
         return StaticAction.FallThrough;
+      case SetDefaultActionAccept:
+        return StaticAction.SetDefaultActionAccept;
+      case SetDefaultActionReject:
+        return StaticAction.SetDefaultActionReject;
+      case SetLocalDefaultActionAccept:
+        return StaticAction.SetLocalDefaultActionAccept;
+      case SetLocalDefaultActionReject:
+        return StaticAction.SetLocalDefaultActionReject;
       default:
         throw new UnsupportedOperationException(
             String.format(

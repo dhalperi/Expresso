@@ -59,9 +59,11 @@ public class MatchCallChain implements Match {
     if (defaultPolicy != null) {
       for (R r : fallThrough.getAllRoutes()) {
         boolean oldCallExprContext = environment.isCallExprContext();
+        boolean oldLocalDefaultAction = environment.isLocalDefaultAction();
         environment.setCallExprContext(true);
         RouteFilterResult<R> resultTmp = defaultPolicy.filter(r, environment);
         environment.setCallExprContext(oldCallExprContext);
+        environment.setLocalDefaultAction(oldLocalDefaultAction);
         result.merge(RouteFilterResult.setReturnFalse(resultTmp.getResults()));
       }
     }

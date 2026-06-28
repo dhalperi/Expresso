@@ -2,7 +2,6 @@ package datamodel.community;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.primitives.Ints;
 import org.batfish.datamodel.Ip;
 
@@ -12,7 +11,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.math.BigInteger;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Set;
 
 import static com.google.common.base.MoreObjects.firstNonNull;
 import static com.google.common.base.Preconditions.checkArgument;
@@ -23,16 +21,6 @@ import static com.google.common.base.Preconditions.checkArgument;
  */
 @ParametersAreNonnullByDefault
 public final class ExtendedCommunity extends Community {
-
-  private static final Set<Byte> _validTypes =
-      ImmutableSet.of(
-          (byte) 0x00,
-          (byte) 0x01,
-          (byte) 0x02,
-          (byte) 0x03,
-          (byte) 0x40,
-          (byte) 0x41,
-          (byte) 0x43);
 
   private final byte _type;
   private final byte _subType;
@@ -137,7 +125,10 @@ public final class ExtendedCommunity extends Community {
         }
       }
     }
-    return of((int) typeByte << 8 | (int) subTypeByte, gaLong, laLong);
+    // Mask each byte to its unsigned value: typeByte/subTypeByte are signed bytes, so a type or
+    // subtype octet >= 0x80 would otherwise sign-extend to a negative int and be rejected (e.g.
+    // Junos "65000:672277L:36867" has type octet 0xFD).
+    return of((typeByte & 0xFF) << 8 | (subTypeByte & 0xFF), gaLong, laLong);
   }
 
   @Nonnull
@@ -154,9 +145,12 @@ public final class ExtendedCommunity extends Community {
         type >= 0 && type <= 0xFFFF,
         "Extended community type %s is not within the allowed range",
         type);
-    byte typeByte = (byte) (type >> 8);
-    checkArgument(
-        _validTypes.contains(typeByte), "Not a valid BGP extended community type: %s", type);
+    // Type and subtype are each a single byte. We do not restrict the type to the IANA-assigned
+    // values we recognize: extended communities observed on real devices may use experimental or
+    // vendor-specific types (e.g. Junos accepts a generic "type:ga:la" literal with an arbitrary
+    // type octet), and we model them as opaque values. The type-specific predicates
+    // (isRouteTarget, isRouteOrigin, etc.) return false for unrecognized types.
+    int typeByte = (type >> 8) & 0xFF;
     checkArgument(
         globalAdministrator >= 0 && localAdministrator >= 0,
         "Administrator values must be positive");
@@ -170,7 +164,7 @@ public final class ExtendedCommunity extends Community {
           "Extended community administrator values are not within the allowed range");
     }
     return new ExtendedCommunity(
-        typeByte, (byte) (type & 0xFF), globalAdministrator, localAdministrator);
+        (byte) typeByte, (byte) (type & 0xFF), globalAdministrator, localAdministrator);
   }
 
   public static ExtendedCommunity of(int type, Ip globalAdministrator, long localAdministrator) {
@@ -267,8 +261,10 @@ public final class ExtendedCommunity extends Community {
     if (_str == null) {
       // To differentiate 4 vs 2-byte global admin values
       String gaSuffix = _type == 0x00 || _type == 0x40 ? "" : "L";
+      // Mask the signed bytes to their unsigned values so a type/subtype octet >= 0x80 (e.g. the
+      // 0xFD type of a generic Junos extended community) renders and round-trips correctly.
       _str =
-          (((int) _type << 8) | _subType)
+          (((_type & 0xFF) << 8) | (_subType & 0xFF))
               + ":"
               + _globalAdministrator
               + gaSuffix
@@ -282,9 +278,9 @@ public final class ExtendedCommunity extends Community {
   @Override
   protected BigInteger asBigIntImpl() {
     int gaOffset = _type == 0x00 || _type == 0x40 ? 32 : 16;
-    return BigInteger.valueOf(_type)
+    return BigInteger.valueOf(_type & 0xFF)
         .shiftLeft(56)
-        .or(BigInteger.valueOf(_subType).shiftLeft(48))
+        .or(BigInteger.valueOf(_subType & 0xFF).shiftLeft(48))
         .or(BigInteger.valueOf(_globalAdministrator).shiftLeft(gaOffset))
         .or(BigInteger.valueOf(_localAdministrator));
   }

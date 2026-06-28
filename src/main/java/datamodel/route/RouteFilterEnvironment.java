@@ -10,6 +10,11 @@ public class RouteFilterEnvironment<R extends Route> {
   private final BgpPeerConfig localConfig;
   private String defaultPolicy;
   private boolean defaultAction;
+  // Per-policy "local" default action (Batfish Environment#getLocalDefaultAction): the value
+  // returned by ReturnLocalDefaultAction, which models a Cisco route-map falling off the end of its
+  // clauses. Defaults to false (route-map fall-off = deny) and is saved/restored around policy
+  // calls, mirroring org.batfish.datamodel.routing_policy.expr.CallExpr.
+  private boolean localDefaultAction;
   private boolean callExprContext;
   private boolean callStatementContext;
   private RouteFilterResult<R> result;
@@ -20,6 +25,7 @@ public class RouteFilterEnvironment<R extends Route> {
       BgpPeerConfig localConfig,
       String defaultPolicy,
       boolean defaultAction,
+      boolean localDefaultAction,
       boolean callExprContext,
       boolean callStatementContext,
       RouteFilterResult<R> result) {
@@ -28,6 +34,7 @@ public class RouteFilterEnvironment<R extends Route> {
     this.localConfig = localConfig;
     this.defaultPolicy = defaultPolicy;
     this.defaultAction = defaultAction;
+    this.localDefaultAction = localDefaultAction;
     this.callExprContext = callExprContext;
     this.callStatementContext = callStatementContext;
     this.result = result;
@@ -63,6 +70,14 @@ public class RouteFilterEnvironment<R extends Route> {
     this.defaultAction = defaultAction;
   }
 
+  public boolean isLocalDefaultAction() {
+    return localDefaultAction;
+  }
+
+  public void setLocalDefaultAction(boolean localDefaultAction) {
+    this.localDefaultAction = localDefaultAction;
+  }
+
   public boolean isCallExprContext() {
     return callExprContext;
   }
@@ -93,6 +108,7 @@ public class RouteFilterEnvironment<R extends Route> {
     private BgpPeerConfig localConfig;
     private String defaultPolicy;
     private boolean defaultAction;
+    private boolean localDefaultAction;
     private boolean callExprContext;
     private boolean callStatementContext;
     private RouteFilterResult<R> result;
@@ -122,6 +138,11 @@ public class RouteFilterEnvironment<R extends Route> {
       return this;
     }
 
+    public Builder<R> setLocalDefaultAction(boolean localDefaultAction) {
+      this.localDefaultAction = localDefaultAction;
+      return this;
+    }
+
     public Builder<R> setCallExprContext(boolean callExprContext) {
       this.callExprContext = callExprContext;
       return this;
@@ -144,6 +165,7 @@ public class RouteFilterEnvironment<R extends Route> {
           localConfig,
           defaultPolicy,
           defaultAction,
+          localDefaultAction,
           callExprContext,
           callStatementContext,
           result);
@@ -157,6 +179,7 @@ public class RouteFilterEnvironment<R extends Route> {
         .setLocalConfig(localConfig)
         .setDefaultPolicy(defaultPolicy)
         .setDefaultAction(defaultAction)
+        .setLocalDefaultAction(localDefaultAction)
         .setCallExprContext(callExprContext)
         .setCallStatementContext(callStatementContext)
         .setResult(result);

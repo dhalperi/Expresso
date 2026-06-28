@@ -205,10 +205,17 @@ public class VirtualRouter implements PathHop {
       // static routes with next-hop-interface, unconditional
       if (route.getNextHopIp() == null) route.setNextHopIp(Ip.AUTO);
       unconditionalStaticRib.add(route);
+    } else if (route.getNextHopIp() == null) {
+      // No next-hop IP and no next-hop interface: a discard/blackhole route (e.g. Juniper
+      // "next-hop discard" / a null interface) or a next-vrf-only leak route. Expresso does not
+      // forward these, so model them as unconditional blackhole routes.
+      route.setNextHopIp(Ip.AUTO);
+      route.setNextHopInterface(router.getBlackhole());
+      unconditionalStaticRib.add(route);
     } else if (route.getNextHopIp().equals(Ip.ZERO)) {
       // static routes with next-hop-ip 0.0.0.0, discard matching packets, unconditional
       route.setNextHopIp(Ip.AUTO);
-      route.setNextHopInterface(router.blackhole);
+      route.setNextHopInterface(router.getBlackhole());
       unconditionalStaticRib.add(route);
     } else {
       // static routes with next-hop-ip, needs resolution

@@ -18,16 +18,6 @@ import java.util.stream.Collectors;
 /** Used by {@link RoutePolicyParser} */
 public class StmtVisitor implements StatementVisitor<Statement, Router> {
   @Override
-  public Statement visitAddCommunity(AddCommunity addCommunity, Router router) {
-    return visitActionStatement(addCommunity, router);
-  }
-
-  @Override
-  public Statement visitBufferedStatement(BufferedStatement bufferedStatement, Router router) {
-    throw new UnsupportedOperationException("Haven't support BufferedStatement until now.");
-  }
-
-  @Override
   public Statement visitCallStatement(CallStatement callStatement, Router router) {
     RoutePolicy calledPolicy = router.getRoutePolicy(callStatement.getCalledPolicyName());
     if (!(calledPolicy instanceof NestedRoutePolicy)) {
@@ -43,8 +33,8 @@ public class StmtVisitor implements StatementVisitor<Statement, Router> {
   }
 
   @Override
-  public Statement visitDeleteCommunity(DeleteCommunity deleteCommunity, Router router) {
-    return visitActionStatement(deleteCommunity, router);
+  public Statement visitExcludeAsPath(ExcludeAsPath excludeAsPath, Router router) {
+    throw new UnsupportedOperationException("Haven't support ExcludeAsPath until now.");
   }
 
   @Override
@@ -52,29 +42,39 @@ public class StmtVisitor implements StatementVisitor<Statement, Router> {
     // guard
     Match match = anIf.getGuard().accept(new BoolVisitor(), router);
 
-    // true statements
+    // true statements (some statements, e.g. comments, convert to null and are dropped, as in
+    // RoutePolicyParser#convertToRoutePolicy)
     List<datamodel.routepolicy.statement.Statement> trueStmts =
         anIf.getTrueStatements().stream()
             .map(stmt -> stmt.accept(this, router))
+            .filter(java.util.Objects::nonNull)
             .collect(Collectors.toList());
 
     // false statements
     List<datamodel.routepolicy.statement.Statement> falseStmts =
         anIf.getFalseStatements().stream()
             .map(stmt -> stmt.accept(this, router))
+            .filter(java.util.Objects::nonNull)
             .collect(Collectors.toList());
 
     return new datamodel.routepolicy.statement.If(match, trueStmts, falseStmts);
   }
 
   @Override
-  public Statement visitOverwriteAsPath(OverwriteAsPath overwriteAsPath, Router router) {
-    return visitActionStatement(overwriteAsPath, router);
+  public Statement visitPrependAsPath(PrependAsPath prependAsPath, Router router) {
+    return visitActionStatement(prependAsPath, router);
   }
 
   @Override
-  public Statement visitPrependAsPath(PrependAsPath prependAsPath, Router router) {
-    return visitActionStatement(prependAsPath, router);
+  public Statement visitReplaceAsesInAsSequence(ReplaceAsesInAsSequence replaceAsesInAsSequence) {
+    throw new UnsupportedOperationException("Haven't support ReplaceAsesInAsSequence until now.");
+  }
+
+  @Override
+  public Statement visitRemoveTunnelEncapsulationAttribute(
+      RemoveTunnelEncapsulationAttribute removeTunnelEncapsulationAttribute, Router router) {
+    throw new UnsupportedOperationException(
+        "Haven't support RemoveTunnelEncapsulationAttribute until now.");
   }
 
   @Override
@@ -86,11 +86,6 @@ public class StmtVisitor implements StatementVisitor<Statement, Router> {
   @Override
   public Statement visitSetCommunities(SetCommunities setCommunities, Router router) {
     return visitActionStatement(setCommunities, router);
-  }
-
-  @Override
-  public Statement visitSetCommunity(SetCommunity setCommunity, Router router) {
-    return visitActionStatement(setCommunity, router);
   }
 
   @Override
@@ -106,12 +101,14 @@ public class StmtVisitor implements StatementVisitor<Statement, Router> {
 
   @Override
   public Statement visitSetIsisLevel(SetIsisLevel setIsisLevel, Router router) {
-    throw new UnsupportedOperationException("Haven't support SetIsisLevel until now.");
+    // No-op: IS-IS metric/level attributes are not relevant to Expresso's BGP analysis.
+    return null;
   }
 
   @Override
   public Statement visitSetIsisMetricType(SetIsisMetricType setIsisMetricType, Router router) {
-    throw new UnsupportedOperationException("Haven't support SetIsisMetricType until now.");
+    // No-op: IS-IS metric type is not relevant to Expresso's BGP analysis.
+    return null;
   }
 
   @Override
@@ -136,7 +133,8 @@ public class StmtVisitor implements StatementVisitor<Statement, Router> {
 
   @Override
   public Statement visitSetOspfMetricType(SetOspfMetricType setOspfMetricType, Router router) {
-    throw new UnsupportedOperationException("Haven't support SetOspfMetricType until now.");
+    // No-op: OSPF metric type is not relevant to Expresso's BGP analysis.
+    return null;
   }
 
   @Override
@@ -145,13 +143,54 @@ public class StmtVisitor implements StatementVisitor<Statement, Router> {
   }
 
   @Override
+  public Statement visitSetDefaultTag(SetDefaultTag setDefaultTag, Router router) {
+    throw new UnsupportedOperationException("Haven't support SetDefaultTag until now.");
+  }
+
+  @Override
+  public Statement visitSetOriginatorIp(SetOriginatorIp setOriginatorIp, Router router) {
+    throw new UnsupportedOperationException("Haven't support SetOriginatorIp until now.");
+  }
+
+  @Override
+  public Statement visitSetTunnelEncapsulationAttribute(
+      SetTunnelEncapsulationAttribute setTunnelEncapsulationAttribute, Router router) {
+    throw new UnsupportedOperationException(
+        "Haven't support SetTunnelEncapsulationAttribute until now.");
+  }
+
+  @Override
   public Statement visitSetVarMetricType(SetVarMetricType setVarMetricType, Router router) {
-    throw new UnsupportedOperationException("Haven't support SetVarMetricType until now.");
+    // No-op: metric type is not relevant to Expresso's BGP analysis.
+    return null;
   }
 
   @Override
   public Statement visitSetWeight(SetWeight setWeight, Router router) {
     return visitActionStatement(setWeight, router);
+  }
+
+  /**
+   * A {@link TraceableStatement} only adds tracing metadata around inner statements; it has no
+   * routing semantics of its own, so we transparently convert its children. Multiple resulting
+   * statements are wrapped in a single {@link datamodel.routepolicy.statement.If} that always
+   * applies them (guard {@link datamodel.routepolicy.match.MatchTrue}).
+   */
+  @Override
+  public Statement visitTraceableStatement(TraceableStatement traceableStatement, Router router) {
+    List<datamodel.routepolicy.statement.Statement> inner =
+        traceableStatement.getInnerStatements().stream()
+            .map(stmt -> stmt.accept(this, router))
+            .filter(java.util.Objects::nonNull)
+            .collect(Collectors.toList());
+    if (inner.isEmpty()) {
+      return null;
+    }
+    if (inner.size() == 1) {
+      return inner.get(0);
+    }
+    return new datamodel.routepolicy.statement.If(
+        datamodel.routepolicy.match.MatchTrue.INSTANCE, inner, java.util.Collections.emptyList());
   }
 
   @Override
@@ -167,6 +206,8 @@ public class StmtVisitor implements StatementVisitor<Statement, Router> {
         return new ActionStatement(RemovePrivateAs.INSTANCE);
       case Return:
         return new ActionStatement(StaticAction.Return);
+      case ReturnLocalDefaultAction:
+        return new ActionStatement(StaticAction.ReturnLocalDefaultAction);
       case ReturnTrue:
         return new ActionStatement(StaticAction.ReturnTrue);
       case ReturnFalse:
@@ -175,6 +216,10 @@ public class StmtVisitor implements StatementVisitor<Statement, Router> {
         return new ActionStatement(StaticAction.SetDefaultActionAccept);
       case SetDefaultActionReject:
         return new ActionStatement(StaticAction.SetDefaultActionReject);
+      case SetLocalDefaultActionAccept:
+        return new ActionStatement(StaticAction.SetLocalDefaultActionAccept);
+      case SetLocalDefaultActionReject:
+        return new ActionStatement(StaticAction.SetLocalDefaultActionReject);
       default:
         throw new UnsupportedOperationException(
             String.format(

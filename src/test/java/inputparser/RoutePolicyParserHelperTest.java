@@ -4,7 +4,9 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import bdd.BddManager;
 import inputparser.ConfigurationParser;
+import main.Controller;
 import org.junit.Test;
 
 import java.io.File;
@@ -21,8 +23,12 @@ import java.util.stream.Collectors;
 public class RoutePolicyParserHelperTest {
   @Test
   public void testParseRoutePolicy() {
-    Path config =
-        Paths.get("networks/internet2/configs/atla-re1.json");
+    // Parsing routes through the BDD layer, so a manager must exist.
+    Controller.bddManager = new BddManager();
+    // Use the example network: its VI is compatible with the current Batfish model. (The committed
+    // internet2 VI was produced by an older Batfish and contains classes since removed, e.g.
+    // MatchIpv6, so it no longer deserializes; regenerate it from raw configs to use it here.)
+    Path config = Paths.get("networks/example/configs/pr1.json");
     ConfigurationParser parser = new ConfigurationParser();
     parser.parseFile(config);
   }

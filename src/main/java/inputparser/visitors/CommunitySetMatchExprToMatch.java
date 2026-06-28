@@ -14,6 +14,7 @@ import org.batfish.datamodel.routing_policy.communities.CommunitySetMatchExprVis
 import org.batfish.datamodel.routing_policy.communities.CommunitySetMatchRegex;
 import org.batfish.datamodel.routing_policy.communities.CommunitySetNot;
 import org.batfish.datamodel.routing_policy.communities.HasCommunity;
+import org.batfish.datamodel.routing_policy.communities.HasSize;
 
 import javax.annotation.Nonnull;
 import java.util.List;
@@ -76,5 +77,11 @@ public class CommunitySetMatchExprToMatch implements CommunitySetMatchExprVisito
     List<CommunityRegex> regexes =
         hasCommunity.getExpr().accept(new CommunityMatchExprToCommunities(), router);
     return matchOne(regexes.stream().map(MatchLiteral::new).collect(Collectors.toList()));
+  }
+
+  @Override
+  public Match visitHasSize(@Nonnull HasSize hasSize, @Nonnull Router router) {
+    // Matching on the number of communities in a route is not modeled by Expresso.
+    throw new UnsupportedOperationException();
   }
 }

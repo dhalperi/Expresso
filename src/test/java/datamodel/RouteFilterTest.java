@@ -26,7 +26,7 @@ public class RouteFilterTest {
   @Test
   public void testPrefixRange() {
     init();
-    PrefixRange prefixRange = PrefixRange.of(Prefix.of("128.0.0.0"), new Range<>(24, 32));
+    PrefixRange prefixRange = PrefixRange.of(Prefix.of("128.0.0.0/24"), new Range<>(24, 32));
     BgpRoute bgpRoute = new BgpRouteBuilder().setPrefixesBdd(1).build();
     RouteFilterResult<BgpRoute> result =
         prefixRange.filter(
@@ -47,8 +47,8 @@ public class RouteFilterTest {
     init();
 
     // build prefix list
-    PrefixRange prefixRange1 = PrefixRange.of(Prefix.of("100.0.0.0"), new Range<>(24, 32));
-    PrefixRange prefixRange2 = PrefixRange.of(Prefix.of("200.0.0.0"), new Range<>(30, 32));
+    PrefixRange prefixRange1 = PrefixRange.of(Prefix.of("100.0.0.0/24"), new Range<>(24, 32));
+    PrefixRange prefixRange2 = PrefixRange.of(Prefix.of("200.0.0.0/30"), new Range<>(30, 32));
     List<Pair<CanBeMatched, Mode>> prefixList = new ArrayList<>();
     prefixList.add(new Pair<>(prefixRange1, Mode.PERMIT));
     prefixList.add(new Pair<>(prefixRange2, Mode.PERMIT));

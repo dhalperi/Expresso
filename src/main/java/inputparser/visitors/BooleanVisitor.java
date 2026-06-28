@@ -19,6 +19,7 @@ import datamodel.routepolicy.match.MatchOne;
 import datamodel.routepolicy.match.MatchTrue;
 import datamodel.tag.Tag;
 import org.batfish.datamodel.routing_policy.Result;
+import org.batfish.datamodel.routing_policy.as_path.MatchAsPath;
 import org.batfish.datamodel.routing_policy.communities.MatchCommunities;
 import org.batfish.datamodel.routing_policy.expr.*;
 
@@ -110,27 +111,34 @@ public class BooleanVisitor implements BooleanExprVisitor<Match, Router> {
   }
 
   @Override
-  public Match visitHasRoute6(HasRoute6 hasRoute6, Router router) {
-    throw new UnsupportedOperationException();
+  public Match visitMatchAsPath(MatchAsPath matchAsPath, Router router) {
+    // HEAD Batfish models AS-path matching as MatchAsPath(AsPathExpr, AsPathMatchExpr). The
+    // AsPathExpr is the path under test (InputAsPath for our purposes); the AsPathMatchExpr is the
+    // predicate, which we translate into Expresso's Match model.
+    return matchAsPath.getAsPathMatchExpr().accept(new AsPathMatchExprToMatch(), router);
   }
 
   @Override
-  public Match visitMatchAsPath(MatchAsPath matchAsPath, Router router) {
-    AsPathSetExpr asPathSetExpr = matchAsPath.getExpr();
-    if (asPathSetExpr instanceof ExplicitAsPathSet) {
-      List<Match> matches =
-          ((ExplicitAsPathSet) asPathSetExpr)
-              .getElems().stream()
-                  .map(elem -> new AsPathRegex(elem.regex()))
-                  .map(MatchLiteral::new)
-                  .collect(Collectors.toList());
-      return matchOne(matches);
-    } else if (asPathSetExpr instanceof NamedAsPathSet) {
+  public Match visitMatchLegacyAsPath(LegacyMatchAsPath legacyMatchAsPath, Router router) {
+    // Legacy AS-path matching survives only over named references (ExplicitAsPathSet was removed).
+    AsPathSetExpr asPathSetExpr = legacyMatchAsPath.getExpr();
+    if (asPathSetExpr instanceof NamedAsPathSet) {
       String listName = ((NamedAsPathSet) asPathSetExpr).getName();
       return new MatchFilterList(listName, router.getFilterList(FilterType.AS_PATH, listName));
     } else {
       throw new UnsupportedOperationException();
     }
+  }
+
+  @Override
+  public Match visitMatchBgpSessionType(MatchBgpSessionType matchBgpSessionType, Router router) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Match visitMatchClusterListLength(
+      MatchClusterListLength matchClusterListLength, Router router) {
+    throw new UnsupportedOperationException();
   }
 
   @Override
@@ -147,26 +155,14 @@ public class BooleanVisitor implements BooleanExprVisitor<Match, Router> {
   }
 
   @Override
-  public Match visitMatchCommunitySet(MatchCommunitySet matchCommunitySet, Router router) {
-    return matchCommunitySet.getExpr().accept(new ExprCommunitySetToMatch(router));
-  }
-
-  @Override
-  public Match visitMatchIp6AccessList(MatchIp6AccessList matchIp6AccessList, Router router) {
-    // we do not support IPv6 currently, thus always return false
-    return MatchFalse.INSTANCE;
+  public Match visitMatchInterface(MatchInterface matchInterface, Router router) {
+    throw new UnsupportedOperationException();
   }
 
   @Override
   public Match visitMatchIpv4(MatchIpv4 matchIpv4, Router router) {
     // we only support IPv4 currently, thus always return true
     return MatchTrue.INSTANCE;
-  }
-
-  @Override
-  public Match visitMatchIpv6(MatchIpv6 matchIpv6, Router router) {
-    // we do not support IPv6 currently, thus always return false
-    return MatchFalse.INSTANCE;
   }
 
   @Override
@@ -186,8 +182,8 @@ public class BooleanVisitor implements BooleanExprVisitor<Match, Router> {
   }
 
   @Override
-  public Match visitMatchPrefix6Set(MatchPrefix6Set matchPrefix6Set, Router router) {
-    return MatchFalse.INSTANCE;
+  public Match visitMatchPeerAddress(MatchPeerAddress matchPeerAddress, Router router) {
+    throw new UnsupportedOperationException();
   }
 
   @Override
@@ -238,6 +234,11 @@ public class BooleanVisitor implements BooleanExprVisitor<Match, Router> {
   }
 
   @Override
+  public Match visitMatchSourceProtocol(MatchSourceProtocol matchSourceProtocol, Router router) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
   public Match visitMatchSourceVrf(MatchSourceVrf matchSourceVrf, Router router) {
     throw new UnsupportedOperationException();
   }
@@ -249,32 +250,17 @@ public class BooleanVisitor implements BooleanExprVisitor<Match, Router> {
   }
 
   @Override
-  public Match visitMatchProcessId(MatchProcessId matchProcessId, Router router) {
-    throw new UnsupportedOperationException();
-  }
-
-  @Override
-  public Match visitNeighborIsAsPath(NeighborIsAsPath neighborIsAsPath, Router router) {
-    throw new UnsupportedOperationException();
-  }
-
-  @Override
   public Match visitNot(Not not, Router router) {
     return not.getExpr().accept(this, router);
   }
 
   @Override
-  public Match visitOriginatesFromAsPath(OriginatesFromAsPath originatesFromAsPath, Router router) {
-    throw new UnsupportedOperationException();
-  }
-
-  @Override
-  public Match visitPassesThroughAsPath(PassesThroughAsPath passesThroughAsPath, Router router) {
-    throw new UnsupportedOperationException();
-  }
-
-  @Override
   public Match visitRouteIsClassful(RouteIsClassful routeIsClassful, Router router) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Match visitTrackSucceeded(TrackSucceeded trackSucceeded, Router router) {
     throw new UnsupportedOperationException();
   }
 

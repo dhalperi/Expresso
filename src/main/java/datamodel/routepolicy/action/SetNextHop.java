@@ -8,7 +8,6 @@ import datamodel.community.CommunityRegex;
 import datamodel.ipv4.Ip;
 import datamodel.ipv4.PrefixRange;
 import datamodel.route.RouteFilterEnvironment;
-import main.ExpressoLogger;
 import org.apache.commons.lang3.ObjectUtils;
 
 import java.util.Collections;
@@ -72,15 +71,15 @@ public class SetNextHop implements Action {
         route.setNextHopIp(environment.getLocalConfig().getLocalIp());
       }
     } else if (blackhole) {
+      // Prefer an explicitly-named null/discard interface (Cisco-style); otherwise fall back to the
+      // router's synthetic blackhole interface. Either way the next-hop interface is a blackhole, so
+      // the route is dropped (see Interface#isBlackhole / RecursiveResolver).
       Interface null0 =
           ObjectUtils.firstNonNull(
               router.getInterface("NULL0"),
               router.getInterface("null_interface"),
-              router.getInterface("dsc0"));
-      if (null0 == null) {
-        ExpressoLogger.log(
-            ExpressoLogger.LEVEL.ERROR, "No blackhole interface on " + router.getRouterName());
-      }
+              router.getInterface("dsc0"),
+              router.getBlackhole());
       route.setNextHopInterface(null0);
     } else {
       route.setNextHopIp(nextHop);

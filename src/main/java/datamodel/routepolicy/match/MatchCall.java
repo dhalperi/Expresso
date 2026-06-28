@@ -23,10 +23,14 @@ public class MatchCall implements Match {
   @Override
   public <B extends DynamicRouteBuilder<B, R>, R extends DynamicRoute<B, R>>
       RouteFilterResult<R> filter(R route, RouteFilterEnvironment<R> environment) {
+    // Mirror org.batfish.datamodel.routing_policy.expr.CallExpr: the called policy's local default
+    // action does not leak back to the caller.
     boolean oldCallExprContext = environment.isCallExprContext();
+    boolean oldLocalDefaultAction = environment.isLocalDefaultAction();
     environment.setCallExprContext(true);
     RouteFilterResult<R> result = calledPolicy.filter(route, environment);
     environment.setCallExprContext(oldCallExprContext);
+    environment.setLocalDefaultAction(oldLocalDefaultAction);
     return result;
   }
 

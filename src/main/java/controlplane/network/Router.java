@@ -10,7 +10,6 @@ import datamodel.acl.Acl;
 import datamodel.trafficpolicy.TrafficPolicy;
 import datamodel.trafficpolicy.behavior.TrafficBehavior;
 import datamodel.trafficpolicy.classifier.TrafficClassifier;
-import org.batfish.datamodel.CommunityList;
 import org.batfish.datamodel.routing_policy.communities.CommunityMatchExpr;
 import org.batfish.datamodel.routing_policy.communities.CommunitySet;
 import org.batfish.datamodel.routing_policy.communities.CommunitySetExpr;
@@ -46,6 +45,24 @@ public class Router {
     trafficClassifiers = new TreeMap<>();
     trafficBehaviors = new TreeMap<>();
     trafficPolicies = new TreeMap<>();
+  }
+
+  /**
+   * Return this router's blackhole (discard) interface, creating it on first use. A route whose
+   * next-hop interface is this interface is dropped (see {@link Interface#isBlackhole()}). Used to
+   * model {@code next-hop discard} route-policy actions and discard static routes on devices that
+   * do not name an explicit null interface (e.g. Juniper).
+   */
+  public Interface getBlackhole() {
+    if (blackhole == null) {
+      blackhole =
+          Interface.builder()
+              .setInterfaceName(new InterfaceName(routerName, "blackhole"))
+              .setType(Interface.InterfaceType.NULL)
+              .build();
+      interfaces.put(blackhole.interfaceName, blackhole);
+    }
+    return blackhole;
   }
 
   @JsonValue
@@ -171,19 +188,10 @@ public class Router {
     return ret;
   }
 
-  SortedMap<String, CommunityList> communityLists;
   SortedMap<String, CommunityMatchExpr> communityMatchExpr;
   SortedMap<String, CommunitySetExpr> communitySetExprs;
   SortedMap<String, CommunitySetMatchExpr> communitySetMatchExpr;
   SortedMap<String, CommunitySet> communitySets;
-
-  public SortedMap<String, CommunityList> getCommunityLists() {
-    return communityLists;
-  }
-
-  public void setCommunityLists(SortedMap<String, CommunityList> communityLists) {
-    this.communityLists = communityLists;
-  }
 
   public SortedMap<String, CommunityMatchExpr> getCommunityMatchExpr() {
     return communityMatchExpr;

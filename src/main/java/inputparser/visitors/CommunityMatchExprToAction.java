@@ -18,6 +18,7 @@ import org.batfish.datamodel.routing_policy.communities.CommunityMatchExprRefere
 import org.batfish.datamodel.routing_policy.communities.CommunityMatchExprVisitor;
 import org.batfish.datamodel.routing_policy.communities.CommunityMatchRegex;
 import org.batfish.datamodel.routing_policy.communities.CommunityNot;
+import org.batfish.datamodel.routing_policy.communities.OpaqueExtendedCommunities;
 import org.batfish.datamodel.routing_policy.communities.ExtendedCommunityGlobalAdministratorHighMatch;
 import org.batfish.datamodel.routing_policy.communities.ExtendedCommunityGlobalAdministratorLowMatch;
 import org.batfish.datamodel.routing_policy.communities.ExtendedCommunityGlobalAdministratorMatch;
@@ -106,6 +107,12 @@ public class CommunityMatchExprToAction implements CommunityMatchExprVisitor<Act
 
   @Override
   public Action visitCommunityNot(@Nonnull CommunityNot communityNot, @Nonnull Router router) {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Action visitOpaqueExtendedCommunities(
+      @Nonnull OpaqueExtendedCommunities opaqueExtendedCommunities, @Nonnull Router router) {
     throw new UnsupportedOperationException();
   }
 
